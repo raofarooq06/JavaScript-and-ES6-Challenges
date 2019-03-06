@@ -8,14 +8,19 @@ Create new function and use it as default parameter.
 
 "use strict";
 
-function square(a) {
+function errorArg()
+{
+  throw new Error('should pass an integer');
+}
+
+function square(a = errorArg()) {
   console.log(a * a);
 }
 
 square(10);
 // 100
 
-square();
+//square();
 // BEFORE: NaN
 // AFTER: Uncaught Error: Function square requires
 // an argument!
